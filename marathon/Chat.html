@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chat</title>
+    <!-- 引入基礎樣式，讓不同瀏覽器看起來一致 -->
+    <link href="./Chat_files/normalize.min.css" rel="stylesheet">
+    <!-- 引入自訂的聊天介面樣式 -->
+    <link href="./Chat_files/style.css" rel="stylesheet">
+    <style>
+        html,
+        body,
+        #n8n-chat {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- JavaScript 掛載區塊，使用 type="module" 可直接匯入現代 JS 模組 -->
+    <n8nchatui-inpage></n8nchatui-inpage>
+    <script type="module" defer>
+        import Chatbot from "https://cdn.n8nchatui.com/v1/embed.js";
+        Chatbot.initFull({
+            "n8nChatUrl": "https://n8n-service-dnng.onrender.com/webhook/94e12e53-6c96-42fd-ac0f-6225bc460f11/chat",
+            "metadata": {}, // Include any custom data to send with each message to your n8n workflow
+            "theme": {
+                "button": {
+                    "iconColor": "#373434",
+                    "backgroundColor": "#ffc8b8"
+                },
+                "chatWindow": {
+                    "borderRadiusStyle": "rounded",
+                    "avatarBorderRadius": 25,
+                    "messageBorderRadius": 6,
+                    "showTitle": true,
+                    "title": "2025 CTBC-TAIPEI 101 RUN UP AI Assistant",
+                    "titleAvatarSrc": "https://upload.wikimedia.org/wikipedia/zh/thumb/a/a1/Taipei101RunUpLogo.svg/260px-Taipei101RunUpLogo.svg.png",
+                    "avatarSize": 40,
+                    "welcomeMessage": "[Solo Challenger] [Team Challenger] are SOLD OUT!\n\nFeel free to ask me any questions about the race, charity program or after party!\n",
+                    "errorMessage": "Please connect me to n8n first",
+                    "backgroundColor": "#ffffff",
+                    "height": 0,
+                    "width": 0,
+                    "fontSize": 16,
+                    "starterPromptFontSize": 15,
+                    "renderHTML": false,
+                    "clearChatOnReload": false,
+                    "showScrollbar": false,
+                    "botMessage": {
+                        "backgroundColor": "#f36539",
+                        "textColor": "#fafafa",
+                        "showAvatar": true,
+                        "avatarSrc": "https://img.ixintu.com/upload/jpg/20210603/673c2a10e00b072e5afb63fe4e001b80_42514_201_519.jpg!con"
+                    },
+                    "userMessage": {
+                        "backgroundColor": "#fff6f3",
+                        "textColor": "#050505",
+                        "showAvatar": true,
+                        "avatarSrc": "https://thumb.ac-illust.com/37/379ee79fc4b4517452db763295d423e2_t.jpeg"
+                    },
+                    "textInput": {
+                        "placeholder": "Type your query",
+                        "backgroundColor": "#ffffff",
+                        "textColor": "#1e1e1f",
+                        "sendButtonColor": "#f36539",
+                        "maxChars": 50,
+                        "maxCharsWarningMessage": "You exceeded the characters limit. Please input less than 50 characters.",
+                        "autoFocus": false,
+                        "borderRadius": 6,
+                        "sendButtonBorderRadius": 50
+                    },
+                    "voiceInputConfig": {
+                        "enabled": true,
+                        "maxRecordingTime": 15,
+                        "recordingNotSupportedMessage": "To record audio, use modern browsers like Chrome or Firefox that support audio recording"
+                    }
+                }
+            }
+        });
+    </script>
+
+    <!-- 聊天視窗的根節點，聊天元件會自動渲染進來 -->
+    <div id="n8n-chat" data-v-app=""></div>
+</body>
+
+</html>
